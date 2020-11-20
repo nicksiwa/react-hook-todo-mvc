@@ -16,6 +16,19 @@ function TodoList() {
     setTodos(newTodos)
   };
 
+  const handleEditTodo = index => value => {
+    console.log(index, value)
+
+    const todo = todos.map((todo, todoIndex) => {
+      if (index === todoIndex) {
+        todo.title = value;
+      }
+      return todo;
+    });
+
+    setTodos(todo);
+  }
+
   const handleRemoveTodo = index => setTodos(todos.filter((_, todoIndex) => index !== todoIndex))
 
   return (
@@ -24,6 +37,7 @@ function TodoList() {
         <TodoItem key={index}
           {...todo}
           handleToggleComplete={() => handleToggleComplete(index)}
+          handleEditTodo={() => handleEditTodo(index)}
           handleRemoveTodo={() => handleRemoveTodo(index)}
         />
       ))}
