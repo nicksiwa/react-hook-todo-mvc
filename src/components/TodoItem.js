@@ -1,7 +1,12 @@
 import React from 'react';
 
 function TodoItem(props) {
-  const { title, completed, handleToggleComplete } = props;
+  const {
+    title,
+    completed,
+    handleToggleComplete,
+    handleRemoveTodo,
+  } = props;
 
   return (
     <li>
@@ -12,6 +17,7 @@ function TodoItem(props) {
         onChange={handleToggleComplete}
       />
       <label>{title}</label>
+      <button className="destroy" onClick={handleRemoveTodo} />
     </li>
   );
 }

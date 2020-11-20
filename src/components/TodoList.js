@@ -16,12 +16,15 @@ function TodoList() {
     setTodos(newTodos)
   };
 
+  const handleRemoveTodo = index => setTodos(todos.filter((_, todoIndex) => index !== todoIndex))
+
   return (
     <ul className="todo-list">
       {todos.map((todo, index) => (
         <TodoItem key={index}
           {...todo}
           handleToggleComplete={() => handleToggleComplete(index)}
+          handleRemoveTodo={() => handleRemoveTodo(index)}
         />
       ))}
     </ul>
