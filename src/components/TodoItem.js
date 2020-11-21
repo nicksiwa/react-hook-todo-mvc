@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 
 function TodoItem(props) {
@@ -13,14 +14,12 @@ function TodoItem(props) {
   const ref = React.createRef();
   
   useEffect(() => {
-    console.log(isEditing)
-
     if (isEditing) {
       ref.current.focus();
     } else {
       handleEditTodo(ref.current.innerHTML)
     }
-  }, [handleEditTodo, isEditing, ref]);
+  }, [isEditing]);
 
   const handleDoubleClickTodo = () => setIsEditing(true);
 
@@ -36,7 +35,6 @@ function TodoItem(props) {
         ref={ref}
         contentEditable={isEditing}
         onDoubleClick={handleDoubleClickTodo}
-        onChange={handleEditTodo}
         onBlur={() => setIsEditing(false)}
       >
         {title}
