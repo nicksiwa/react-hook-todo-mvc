@@ -3,6 +3,7 @@ import TodoInput from './components/TodoInput';
 import TodoList from './components/TodoList';
 import TodoCount from './components/TodoCount';
 import TodoFilters from './components/TodoFilters';
+import ToggleAllTodos from './components/ToggleAllTodos';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <TodoInput />
       </header>
       <section className="main">
+        <ToggleAllTodos />
         <TodoList />
       </section>
       <footer className="footer">

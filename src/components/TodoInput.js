@@ -10,8 +10,8 @@ function TodoInput() {
   }
 
   function onSubmit(e) {
-    if (e.key === 'Enter') {
-      const newTodos = [...todos, { title: textInput }];
+    if (e.key === 'Enter' && e.target.value) {
+      const newTodos = [...todos, { title: textInput, completed: false }];
       setTodos(newTodos);
       setTextInput('');
     }
